@@ -230,7 +230,6 @@ def Component_Biasing(pdk: MappedPDK,
     
     #External conections
     #M1 - M2
-    #VSS_M1M2 = straight_route(pdk, M1.ports['source_2_'+str(index_list[0][2][1]+1)+'_0_W'], M2.ports['source_1_'+str(index_list[1][1][0]+1)+'_0_E'], glayer1='met2', glayer2='met2', via1_alignment_layer='met2', width = width_horizontal)
     biasing << L_route(pdk, M1.ports['source_'+str(index_list[0][2][1]+1)+'_2_0_W'], M2.ports['source_'+str(index_list[1][1][0]+1)+'_1_0_N'], hglayer='met2', vglayer='met3', vwidth = width_horizontal)
     
     #M1 - M3
@@ -248,9 +247,6 @@ def Component_Biasing(pdk: MappedPDK,
 
     #M4 - M5
     biasing << L_route(pdk, M5.ports[str(index_list[4][2][0]+1)+'_2_gate_E'], M4.ports['gate2_N'], hglayer='met2', vglayer='met3')
-    #biasing << L_route(pdk, M5.ports['source_'+str(index_list[4][1][0]+1)+'_1_0_E'], M4.ports['source_'+str(index_list[3][1][1]+1)+'_1_0_N'], hglayer='met2', vglayer='met3', vwidth = width_horizontal-2*min_separation_met2)
-    #VDD_M4M5 = biasing << straight_route(pdk, M5.ports['source_1_1_0_E'], M4.ports['source_6_1_0_N'], width=width_horizontal)
-    #biasing.add_ports(VDD_M4M5.ports, prefix='VDD_M4M5_')
 
     #M4 - M6
     biasing << straight_route(pdk, M6.ports['drain_'+str(index_list[5][2][0]+1)+'_2_0_W'], M4.ports['gate1_E'], glayer1='met2', glayer2='met2' ,width = width_horizontal)
@@ -407,12 +403,8 @@ def Biasing_generator(pdk,
         #bulk
         biasing << straight_route(pdk, M7.ports['source_'+str(i+1)+'_'+str(arrays_info[6][0][i])+'_0_N'], M7.ports['bulk_down_S'], via2_alignment_layer='met2') 
         #
-    #VSS_M7 = biasing << straight_route(pdk, M7.ports['source_'+str(index_list[6][3][0]+1)+'_3_0_W'], M7.ports['source_'+str(index_list[6][3][1]+1)+'_3_0_E'], glayer1='met2', glayer2='met2', via1_alignment_layer='met2', width = width_horizontal)
     biasing << straight_route(pdk, M7.ports['gate_1_l_S'], M7.ports['gate_2_l_N'], glayer1 = 'met3', glayer2 = 'met3')
     biasing << straight_route(pdk, M7.ports['gate_1_r_S'], M7.ports['gate_2_r_N'], glayer1 = 'met3', glayer2 = 'met3')
-    #biasing << straight_route(pdk, M7.ports['drain_1_3_0_W'], M7.ports['drain_39_3_0_E'], glayer1='met2', glayer2='met2', via1_alignment_layer='met3', width = width_horizontal)
-    #biasing << straight_route(pdk, M7.ports['drain_4_2_0_W'], M7.ports['drain_36_2_0_E'], glayer1='met2', glayer2='met2', via1_alignment_layer='met3', width = width_horizontal)
-    #biasing << straight_route(pdk, M7.ports['drain_14_1_0_W'], M7.ports['drain_26_1_0_E'], glayer1='met2', glayer2='met2', via1_alignment_layer='met3', width = width_horizontal)
 
     #External routing
     #M6 - M7
@@ -443,9 +435,7 @@ def Biasing_generator(pdk,
     biasing << L_route(pdk, top.ports['M3_drain_'+str(index_list[2][3][0]+1)+'_3_0_S'], via_M3M7_right.ports['bottom_met_E'], vwidth = width_horizontal)
     biasing << L_route(pdk, via_M3M7_right.ports['top_met_N'], M7.ports['gate_1_r_W'], hglayer = 'met2', vglayer='met3', hwidth = width_horizontal, vwidth=width_horizontal)
     biasing << L_route(pdk, via_M3M7_right.ports['top_met_N'], M7.ports['gate_2_r_W'], hglayer = 'met2', vglayer='met3', hwidth = width_horizontal, vwidth=width_horizontal)
-    #biasing << c_route(pdk, top.ports['M3_drain_3_3_0_N'], M7.ports['gate_1_l_N'], cglayer='met2', cwidth=width_horizontal, extension=width_horizontal+3*min_separation_met2)
-    #biasing << c_route(pdk, top.ports['M3_drain_3_3_0_N'], M7.ports['gate_1_r_N'], cglayer='met2', cwidth=width_horizontal, extension=width_horizontal+3*min_separation_met2)
-    
+   
     #Add ports to component
     biasing.add_ports(top.ports)
     biasing.add_ports(M7.ports, prefix='M7_')
@@ -493,8 +483,6 @@ def Biasing_generator(pdk,
     #Centered and boundary
     biasing_centered = center_component_with_ports(pdk, biasing_centered)
     rename_ports_by_orientation(biasing_centered)
-
-    #boundary = Boundary_layer(pdk, biasing_centered)
 
     #Rails
     route_list_hor = [['M1_source_'+str(index_list[0][2][0]+1)+'_2_0_route_','VSS'], ['M2_source_'+str(index_list[1][1][0]+1)+'_1_0_route_', 'VSS']]
