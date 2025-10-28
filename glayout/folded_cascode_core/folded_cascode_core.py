@@ -122,26 +122,6 @@ def place_bi_current(pdk: MappedPDK, true_size: int = 0) -> Component:
 
     place_bi_current.add_ports(Bi_current_component.get_ports_list(),prefix='BIC_')
 
-    '''#routing bulks
-    pos_der = (place_bi_current.ports['PBI_P_VBC_D_N'].center[0]-place_bi_current.ports['PBI_P_VBC_D_W'].center[0])/2
-    pos_iz = (place_bi_current.ports['PBI_P_VBC_D_N'].center[0]-place_bi_current.ports['PBI_P_VBC_D_E'].center[0])/2
-    via_ref = via_array(pdk, 'met2', 'met3', (pos_der/2, 0.5))
-
-    bulk_par_1 = place_bi_current << via_ref
-    bulk_par_1.movex(pos_der).movey(place_bi_current.ports['PBI_P_VBC_D_E'].center[1])
-
-    bulk_par_2 = place_bi_current << via_ref
-    bulk_par_2.movex(pos_iz).movey(place_bi_current.ports['PBI_P_VBC_D_E'].center[1])
-
-    bulk_tail_1 = place_bi_current << via_ref
-    bulk_tail_1.movex(pos_der).movey(place_bi_current.ports['PBI_T_VBC_U_E'].center[1])
-
-    bulk_tail_2 = place_bi_current << via_ref
-    bulk_tail_2.movex(pos_iz).movey(place_bi_current.ports['PBI_T_VBC_U_E'].center[1])
-
-    place_bi_current << straight_route(pdk, bulk_par_1.ports['top_met_N'], bulk_tail_1.ports['top_met_S'])
-    place_bi_current << straight_route(pdk, bulk_par_2.ports['top_met_N'], bulk_tail_2.ports['top_met_S'])'''
-
     #component = Component()
     #component << place_bi_current
 
@@ -289,10 +269,6 @@ def OTA_Core(pdk: MappedPDK) -> Component:
                             )
         size_component = -1*OTA_core.bbox[0][1]
         extension_bias = pdk.get_grule('met2')['min_separation'] + (size_component - lower_position)
-        #print(abs(TOP_PB1.ports['VBIAS_S'].center[1]))
-        #print(abs(TOP_BI1.ports['VB2_S'].center[1]))
-        #print(lower_position)
-        #print(size_component)
         Route_Bias = OTA_core << c_route(pdk, TOP_PB1.ports['VBIAS_S'],TOP_BI1.ports['VB2_S'], cglayer='met2', extension=extension_bias)
         Route_VSS = OTA_core << c_route(pdk, TOP_PB1.ports['VREF_S'], TOP_BI1.ports['VREF_S'], cglayer='met2', extension=0.5 + 2*pdk.get_grule('met2')['min_separation'])
         #OTA_core.add_ports(Route_VSS.get_ports_list(), prefix='Ruta_')
