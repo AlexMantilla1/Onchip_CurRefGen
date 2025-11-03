@@ -40,3 +40,17 @@ tools/
 context/
 
 *.gds.backup
+
+# generated sim data
+designs/libs/*/runs/
+# generated netlists
+designs/libs/*/netlist/
+# generated doc
+designs/libs/*/docs/
+
+# Just in case MacOS is used
+.DS_Store
+
+# for any python matter
+__pycache__/
+*.pyc
