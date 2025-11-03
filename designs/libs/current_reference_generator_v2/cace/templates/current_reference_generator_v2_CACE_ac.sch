@@ -147,6 +147,6 @@ value="
 * Flag unsafe operating conditions (exceeds models' specified limits)
 .option warn=1
 "}
-C {/foss/designs/chipathon_2025/designs/gf180/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1040 -470 0 0 {name=x2}
-C {/foss/designs/chipathon_2025/designs/gf180/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1410 -240 0 0 {name=x3}
-C {/foss/designs/chipathon_2025/designs/gf180/error_amplifier_N_input_v3/xschem/error_amplifier_N_input_v3.sym} 770 -540 0 0 {name=x1}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1040 -470 0 0 {name=x2}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1410 -240 0 0 {name=x3}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 770 -540 0 0 {name=x1}

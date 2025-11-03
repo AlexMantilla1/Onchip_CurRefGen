@@ -104,4 +104,4 @@ C {lab_pin.sym} 450 -530 2 1 {name=p1 sig_type=std_logic lab=Vref}
 C {lab_pin.sym} 620 -610 2 1 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 650 -290 2 0 {name=p15 sig_type=std_logic lab=VSS}
 C {xschem/current_reference_generator_v2.sym} 650 -450 0 0 {name=x1}
-C {/foss/designs/chipathon_2025/designs/gf180/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1080 -280 0 0 {name=x2}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1080 -280 0 0 {name=x2}

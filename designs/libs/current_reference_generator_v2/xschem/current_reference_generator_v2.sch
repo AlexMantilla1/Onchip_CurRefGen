@@ -68,5 +68,5 @@ C {iopin.sym} 740 -150 0 0 {name=p14 lab=Iref2n}
 C {iopin.sym} 740 -210 0 0 {name=p16 lab=Iref2p}
 C {lab_pin.sym} 620 -150 0 1 {name=p17 sig_type=std_logic lab=Iref2n}
 C {lab_pin.sym} 620 -210 0 1 {name=p18 sig_type=std_logic lab=Iref2p}
-C {gf180/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 480 -180 0 0 {name=x2}
-C {gf180/error_amplifier_N_input_v3/xschem/error_amplifier_N_input_v3.sym} 210 -250 0 0 {name=x1}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 210 -250 0 0 {}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 480 -180 0 0 {name=x1}

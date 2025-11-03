@@ -35,5 +35,5 @@ C {noconn.sym} 20 60 2 0 {name=l1}
 C {devices/lab_wire.sym} 80 80 0 0 {name=p13 sig_type=std_logic lab=VbiasP2}
 C {devices/lab_wire.sym} 80 100 0 0 {name=p16 sig_type=std_logic lab=VbiasN2}
 C {devices/lab_wire.sym} 80 120 0 0 {name=p17 sig_type=std_logic lab=VbiasN1}
-C {/foss/designs/chipathon_2025/designs/gf180/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym} 150 -70 0 0 {name=x1}
-C {/foss/designs/chipathon_2025/designs/gf180/error_amplifier_N_input_bias_v4/xschem/error_amplifier_N_input_bias_v4.sym} -120 90 0 0 {name=x2}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym} 150 -70 0 0 {name=x1}
+C {/foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_bias_v4/xschem/error_amplifier_N_input_bias_v4.sym} -120 90 0 0 {name=x2}
