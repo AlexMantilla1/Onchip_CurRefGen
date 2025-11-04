@@ -32,5 +32,5 @@ xschem          # Schematic, symbol designs, and all pre-layout testbenches
 
 Certain files have naming restrictions. The .yaml, .sch, .sym, and .gds files must have the same name as the project directory. For example, for the project `error_amplifier_N_input_v4,`, the following files must exist with the corresponding names: `error_amplifier_N_input_v4.yaml`, `error_amplifier_N_input_v4.sch`, `error_amplifier_N_input_v4.sym`, and `error_amplifier_N_input_v4.gds`, each placed in its respective folder according to the previously mentioned structure. Testbenches, scripts, and templates do not need to follow the same naming convention for their files.
 
-![Example](docs/cace/cace_structure.png)
+![Example](Onchip_CurRefGen/docs/cace/cace_structure.png)
 
