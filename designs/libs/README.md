@@ -32,7 +32,7 @@ Certain files have naming restrictions. The .yaml, .sch, .sym, and .gds files mu
 
 ![Structure](../../docs/cace/cace_structure.png)
 
-## Run the characterizations
+## Run the tests
 ![Datasheet](../../docs/cace/datasheet.png)
 All project description is contained in the `.yaml` file, as it serves as the datasheet. It includes general project information such as the name, description, PDK used, pins, authorship, paths to various files, default conditions for each pin, measurement parameters, simulation conditions, and more. This file will generate all documentation at the end of its execution. To run CACE, the following command must be executed in the project's folder:
 
@@ -48,3 +48,11 @@ This will execute all the parameters specified in the datasheet for the extracti
 
 ![Run](../../docs/cace/Run_Ex.png)
 
+Within each parameter in the YAML file, the specs, various measurements (performed within the same template), tools, plots, and conditions are specified. The conditions define the possible corners to consider in the test (power supply, statistical variations, current and voltage references, etc.). For simplicity, the datasheet can be edited by commenting out the conditions that are not required with a `#`, in order to avoid running all corners simultaneously.
+
+![corners](../../docs/cace/corners.png)
+
+## Results
+All results are saved in an automatically generated folder called `/Docs`. Additionally, the simulation metadata is stored in the `runs` folder. The rigor of result generation and presentation depends on each project. For more information, refer to the [CACE documentation](https://cace.readthedocs.io/en/latest/).
+
+![results](../../docs/cace/results.png)
