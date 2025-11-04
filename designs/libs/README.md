@@ -34,16 +34,16 @@ Certain files have naming restrictions. The .yaml, .sch, .sym, and .gds files mu
 
 ## Run the tests
 ![Datasheet](../../docs/cace/datasheet.png)
-All project description is contained in the `.yaml` file, as it serves as the datasheet. It includes general project information such as the name, description, PDK used, pins, authorship, paths to various files, default conditions for each pin, measurement parameters, simulation conditions, and more. This file will generate all documentation at the end of its execution. To run CACE, the following command must be executed in the project's folder:
+All project description is contained in the `.yaml` file, as it serves as the datasheet. It includes general project information such as the name, description, PDK used, pins, authorship, paths to various files, default conditions for each pin, measurement parameters, simulation conditions, and more. This file will generate all documentation at the end of its execution. To run CACE, the following command must be executed in the current reference folder (/designs/libs/current_reference_generator_v2):
 
 ```
-> cace
+> cace --sequential
 ```
 
 This will execute all the parameters specified in the datasheet for the extraction of capacitances and parasitic resistances of the project (rcx), including all corners, stimuli, Monte Carlo points, among other conditions. To execute specific parameters, the `-p [parameter]` option should be added, and the parameters to be evaluated must be defined. To change the netlist on which the measurement will be performed, the `-s [source]` option must be used, with options such as `schematic`, `layout`, and `rcx`. For example:
 
 ```
-> cace -s layout -p dc_param ac_param
+> cace -s layout -p dc_param ac_param --sequential
 ```
 
 ![Run](../../docs/cace/Run_Ex.png)
@@ -56,3 +56,6 @@ Within each parameter in the YAML file, the specs, various measurements (perform
 All results are saved in an automatically generated folder called `/Docs`. Additionally, the simulation metadata is stored in the `runs` folder. The rigor of result generation and presentation depends on each project. For more information, refer to the [CACE documentation](https://cace.readthedocs.io/en/latest/).
 
 ![results](../../docs/cace/results.png)
+
+## Other sublocks
+Same verification is made for the other blocks. You can navigate to each folder and execute the same commands to run the cace verification
