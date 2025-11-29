@@ -1,13 +1,12 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 1210 -350 1210 -290 {
 lab=GND}
-N 1120 -460 1210 -460 {
-lab=Vout}
 N 1210 -460 1210 -410 {
 lab=Vout}
 N 840 -490 940 -490 {
@@ -24,7 +23,6 @@ N 670 -440 840 -440 {lab=Vin}
 N 670 -440 670 -210 {lab=Vin}
 N 760 -260 760 -210 {lab=Vx}
 N 760 -360 760 -320 {lab=V-}
-N 1160 -460 1160 -210 {lab=Vout}
 N 350 -210 350 -200 {lab=GND}
 N 350 -300 350 -270 {lab=Vref}
 N 1120 -180 1160 -180 {lab=Vout}
@@ -39,6 +37,8 @@ N 730 -210 760 -210 {lab=Vx}
 N 1040 -210 1080 -210 {lab=Vo2}
 N 890 -210 920 -210 {lab=#net1}
 N 760 -210 830 -210 {lab=Vx}
+N 1120 -460 1210 -460 {lab=Vout}
+N 1160 -460 1160 -210 {lab=Vout}
 C {vsource.sym} 760 -290 0 0 {name=V1 value="AC 1" savecurrent=false}
 C {capa.sym} 700 -210 1 0 {name=C3
 m=1
@@ -304,10 +304,10 @@ C {devices/gnd.sym} 1080 -60 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} 1080 -210 0 0 {name=p3 sig_type=std_logic lab=Vo2}
 C {devices/vsource.sym} 1010 -210 1 0 {name=V10 value=\{Vout_CM\}}
 C {devices/vsource.sym} 950 -210 3 1 {name=V3 value=\{Vin\}}
-C {gf180/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 1030 -460 0 0 {name=x1}
 C {devices/launcher.sym} 160 -530 0 0 {name=h3
 descr="Save & Netlist & sim" 
 tclcommand="xschem save; xschem netlist; xschem simulate"}
 C {launcher.sym} 160 -470 0 0 {name=h2
 descr="Annotate OP"
 tclcommand="set show_hidden_texts 1; xschem annotate_op"}
+C {libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 1030 -460 0 0 {name="x1"}

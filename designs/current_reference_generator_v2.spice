@@ -1,0 +1,101 @@
+** sch_path: /foss/designs/Onchip_CurRefGen/designs/libs/current_reference_generator_v2/xschem/current_reference_generator_v2.sch
+.subckt current_reference_generator_v2 VSS VDD Vref Vrefp Vrefn Iref1n Iref3n Iref1p Iref3p Vres Iref2n Iref2p
+*.PININFO Vref:I VDD:B VSS:B Vrefp:B Vrefn:B Iref1n:B Iref3n:B Iref1p:B Iref3p:B Vres:B Iref2n:B Iref2p:B
+x1 Vrefp Vres Vref Vref VDD VSS net1 error_amplifier_N_input_v4
+x2 net1 Vres VDD Vrefp VSS Vrefn Iref1n Iref3n Iref1p Iref3p Iref2n Iref2p current_reference_second_stage_v2
+.ends
+
+* expanding   symbol:  libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym # of pins=7
+** sym_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym
+** sch_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sch
+.subckt error_amplifier_N_input_v4 Vout V+ V- Vref VDD VSS Vcomn
+*.PININFO V+:I Vout:B V-:I Vref:I VDD:B VSS:B Vcomn:B
+* noconn #net1
+x1 VbiasP2 VbiasN2 VbiasN1 Vout V+ V- VDD VSS Vcomn error_amplifier_N_input_core_v4
+x2 VbiasN1 VbiasN2 VbiasP2 VDD VSS Vref net1 error_amplifier_N_input_bias_v4
+.ends
+
+
+* expanding   symbol:  libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym # of pins=12
+** sym_path: /foss/designs/Onchip_CurRefGen/designs/libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym
+** sch_path: /foss/designs/Onchip_CurRefGen/designs/libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sch
+.subckt current_reference_second_stage_v2 Vcomn Vres VDD Vrefp VSS Vrefn Iref1n Iref3n Iref1p Iref3p Iref2n Iref2p
+*.PININFO VDD:B VSS:B Vrefp:B Vrefn:B Iref1n:B Iref3n:B Iref1p:B Iref3p:B Vres:B Vcomn:B Iref2p:B Iref2n:B
+M6 Vrefn Vrefn net9 VSS nfet_03v3 L=2u W=4u nf=1 m=2
+M5 Vcomn Vres Vcomn Vcomn pfet_03v3 L=5u W=5u nf=1 m=60
+M1 net1 Vrefp VDD VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M2 net2 Vrefp VDD VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M3 net3 Vrefp VDD VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M4 net5 Vrefp VDD VDD pfet_03v3 L=2u W=2u nf=1 m=50
+M7 Iref1n Vrefn net8 VSS nfet_03v3 L=2u W=4u nf=1 m=2
+M8 Iref3n Vrefn net6 VSS nfet_03v3 L=2u W=4u nf=1 m=50
+M9 net4 Vrefp VDD VDD pfet_03v3 L=2u W=2u nf=1 m=20
+M10 Iref2n Vrefn net7 VSS nfet_03v3 L=2u W=4u nf=1 m=20
+M11 Vres Vrefp net1 VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M12 Vrefn Vrefp net2 VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M13 Iref1p Vrefp net3 VDD pfet_03v3 L=2u W=2u nf=1 m=2
+M14 Iref3p Vrefp net5 VDD pfet_03v3 L=2u W=2u nf=1 m=50
+M15 Iref2p Vrefp net4 VDD pfet_03v3 L=2u W=2u nf=1 m=20
+M16 net9 Vrefn VSS VSS nfet_03v3 L=2u W=4u nf=1 m=2
+M17 net8 Vrefn VSS VSS nfet_03v3 L=2u W=4u nf=1 m=2
+M18 net6 Vrefn VSS VSS nfet_03v3 L=2u W=4u nf=1 m=50
+M19 net7 Vrefn VSS VSS nfet_03v3 L=2u W=4u nf=1 m=20
+M20 VDD VDD VDD VDD pfet_03v3 L=2u W=2u nf=1 m=192
+M21 VSS VSS VSS VSS nfet_03v3 L=2u W=4u nf=1 m=180
+M22 VSS VDD VSS VSS nfet_03v3 L=2u W=4u nf=1 m=16
+.ends
+
+
+* expanding   symbol:  libs/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym # of pins=9
+** sym_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym
+** sch_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sch
+.subckt error_amplifier_N_input_core_v4 VbiasP2 VbiasN2 VbiasN1 Vout V+ V- VDD VSS Vcomn
+*.PININFO VbiasN2:I VDD:B VbiasP2:I VbiasN1:I V+:I V-:I VSS:B Vcomn:B Vout:B
+M4 Vdm6 Val VDD VDD pfet_03v3 L=1u W=2u nf=1 m=1
+M3 Vdm5 Val VDD VDD pfet_03v3 L=1u W=2u nf=1 m=1
+M5 Val VbiasP2 Vdm5 VDD pfet_03v3 L=1u W=2u nf=1 m=2
+M6 Vout VbiasP2 Vdm6 VDD pfet_03v3 L=1u W=2u nf=1 m=2
+M9 net1 VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=2
+M8 Vout VbiasN2 Vcomn VSS nfet_03v3 L=2u W=2u nf=1 m=2
+M7 Val VbiasN2 net1 VSS nfet_03v3 L=2u W=2u nf=1 m=2
+M10 Vcomn VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=2
+M15 VDD VDD VDD VDD pfet_03v3 L=1u W=2u nf=1 m=22
+M13 VSS VSS VSS VSS nfet_03v3 L=4u W=2u nf=1 m=50
+M12 VSS VSS VSS VSS nfet_03v3 L=2u W=2u nf=1 m=70
+M1 Vdm6 V- net2 VSS nfet_03v3 L=4u W=2u nf=1 m=30
+M2 Vdm5 V+ net2 VSS nfet_03v3 L=4u W=2u nf=1 m=30
+M11 net2 VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=20
+.ends
+
+
+* expanding   symbol:  libs/error_amplifier_N_input_bias_v4/xschem/error_amplifier_N_input_bias_v4.sym # of pins=7
+** sym_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_bias_v4/xschem/error_amplifier_N_input_bias_v4.sym
+** sch_path: /foss/designs/Onchip_CurRefGen/designs/libs/error_amplifier_N_input_bias_v4/xschem/error_amplifier_N_input_bias_v4.sch
+.subckt error_amplifier_N_input_bias_v4 VbiasN1 VbiasN2 VbiasP2 VDD VSS Vref VbiasP1
+*.PININFO Vref:I VbiasN1:B VbiasN2:B VDD:B VbiasP2:B VSS:B VbiasP1:B
+M1 VbiasN2 VbiasN2 net2 VSS nfet_03v3 L=2u W=0.5u nf=1 m=1
+M2 VbiasP1 VbiasP1 VDD VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M3 VbiasP1 Vref net1 VSS nfet_03v3 L=2u W=1u nf=1 m=1
+M4 VbiasN2 VbiasP1 VDD VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M5 VbiasN1 VbiasP1 VDD VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M6 net6 VbiasP2 VDD VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M7 VbiasP2 VbiasP2 net6 VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M8 net7 net8 VDD VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M9 net8 VbiasP2 net7 VDD pfet_03v3 L=2u W=1u nf=1 m=1
+M10 net10 VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M11 VbiasN1 VbiasN2 net3 VSS nfet_03v3 L=2u W=0.5u nf=1 m=1
+M12 VbiasP2 VbiasN2 net4 VSS nfet_03v3 L=2u W=0.5u nf=1 m=1
+M13 net8 VbiasN2 net9 VSS nfet_03v3 L=2u W=0.5u nf=1 m=1
+M14 net2 VbiasN2 VSS VSS nfet_03v3 L=2u W=0.5u nf=1 m=1
+M15 net3 VbiasN1 net11 VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M16 net4 VbiasN1 net5 VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M17 net9 VbiasN1 net10 VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M18 net1 Vref VSS VSS nfet_03v3 L=2u W=1u nf=1 m=1
+M19 net5 VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M20 net11 VbiasN1 VSS VSS nfet_03v3 L=2u W=2u nf=1 m=16
+M21 VSS VSS VSS VSS nfet_03v3 L=2u W=0.5u nf=1 m=22
+M22 VSS VSS VSS VSS nfet_03v3 L=2u W=2u nf=1 m=104
+M23 VSS VSS VSS VSS nfet_03v3 L=2u W=1u nf=1 m=10
+M24 VDD VDD VDD VDD pfet_03v3 L=2u W=1u nf=1 m=32
+.ends
+

@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 140 -170 140 -160 {lab=GND}
 N 140 -260 140 -230 {lab=VDD}
@@ -458,5 +459,5 @@ C {lab_pin.sym} 970 -170 2 1 {name=p12 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 970 -130 2 1 {name=p13 sig_type=std_logic lab=VSS}
 C {noconn.sym} 920 -260 2 0 {name=l1}
 C {noconn.sym} 920 -400 2 0 {name=l3}
-C {gf180/current_reference_load/xschem/current_reference_load.sym} 1150 -150 0 0 {name=x2}
-C {gf180/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 710 -330 0 0 {name=x1}
+C {libs/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 710 -330 0 0 {name=x1}
+C {libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1150 -150 0 0 {name=x2}

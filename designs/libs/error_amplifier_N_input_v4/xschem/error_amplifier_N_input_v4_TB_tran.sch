@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 1220 -240 1220 -180 {
 lab=GND}
@@ -86,7 +87,7 @@ C {devices/vsource.sym} 360 -130 0 0 {name=V2 value=\{Vref\}}
 C {devices/gnd.sym} 360 -90 0 0 {name=l1 lab=GND}
 C {devices/lab_wire.sym} 360 -190 0 0 {name=p1 sig_type=std_logic lab=Vref}
 C {devices/vsource.sym} 290 -130 0 0 {name=V1 value="pwl 0 0 10u 0 0.501u 1.8"}
-C {gf180/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 1040 -350 0 0 {name=x1}
 C {devices/launcher.sym} 170 -400 0 0 {name=h3
 descr="Save & Netlist & sim" 
 tclcommand="xschem save; xschem netlist; xschem simulate"}
+C {libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 1040 -350 0 0 {}

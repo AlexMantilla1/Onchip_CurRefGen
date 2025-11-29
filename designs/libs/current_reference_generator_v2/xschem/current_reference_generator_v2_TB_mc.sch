@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 P 4 1 1090 -390 {}
 N 280 -90 280 -80 {lab=GND}
@@ -245,6 +246,6 @@ C {lab_pin.sym} 980 -490 0 1 {name=p24 sig_type=std_logic lab=Vrefp}
 C {lab_pin.sym} 1060 -510 0 1 {name=p25 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 1060 -220 2 1 {name=p26 sig_type=std_logic lab=Vout}
 C {noconn.sym} 1300 -280 2 0 {name=l3}
-C {gf180/current_reference_load/xschem/current_reference_load.sym} 1550 -200 0 0 {name=x3}
-C {gf180/error_amplifier_N_input_v3/xschem/error_amplifier_N_input_v3.sym} 850 -420 0 0 {name=x1}
-C {gf180/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1120 -350 0 0 {name=x2}
+C {libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 850 -420 0 0 {name=x1}
+C {libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1120 -350 0 0 {name=x2}
+C {libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1550 -200 0 0 {name=x3}

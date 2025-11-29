@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 L 4 1120 -495 1540 -495 {}
 L 4 1120 -445 1540 -445 {}
@@ -62,16 +63,16 @@ N 490 -570 510 -570 {lab=Vn}
 N 490 -610 490 -570 {lab=Vn}
 N 490 -610 510 -610 {lab=Vn}
 N 510 -650 510 -610 {lab=Vn}
-N 550 -70 550 -60 {lab=GND}
-N 550 -160 550 -130 {lab=VbiasP2}
-N 630 -70 630 -60 {lab=GND}
-N 630 -160 630 -130 {lab=VbiasN2}
-N 710 -70 710 -60 {lab=GND}
-N 710 -160 710 -130 {lab=VbiasN1}
-N 390 -70 390 -60 {lab=GND}
-N 390 -160 390 -130 {lab=VDD}
-N 470 -70 470 -60 {lab=GND}
-N 470 -160 470 -130 {lab=VSS}
+N 540 -70 540 -60 {lab=GND}
+N 540 -160 540 -130 {lab=VbiasP2}
+N 650 -70 650 -60 {lab=GND}
+N 650 -160 650 -130 {lab=VbiasN2}
+N 760 -70 760 -60 {lab=GND}
+N 760 -160 760 -130 {lab=VbiasN1}
+N 330 -70 330 -60 {lab=GND}
+N 330 -160 330 -130 {lab=VDD}
+N 430 -70 430 -60 {lab=GND}
+N 430 -160 430 -130 {lab=VSS}
 N 330 -240 330 -230 {lab=GND}
 N 330 -330 330 -300 {lab=Vin}
 N 1000 -410 1000 -390 {lab=GND}
@@ -90,11 +91,11 @@ C {simulator_commands.sym} 140 -460 0 0 {name="COMMANDS"
 simulator="ngspice"
 only_toplevel="false" 
 value="
-.option temp = 125
+*.option temp = 125
 
 * --- Include PDK and Model Files ---
 .include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
-.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice ff
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
 
 
 * --- Simulation Commands and Analysis ---
@@ -283,7 +284,7 @@ print #####_Custom_output_##### power Av BW BW_2 Rout gm_M1 ro_M1 gm_M6 ro_M6 ro
 
 
     remzerovec
-    write error_amplifier_N_input_TB_ac_v2.raw
+    write error_amplifier_N_input_core_v4_TB_ac_v2.raw
     set appendwrite
     setplot ac1
 
@@ -327,7 +328,7 @@ C {lab_pin.sym} 640 -530 2 1 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 640 -510 2 1 {name=p9 sig_type=std_logic lab=VSS}
 C {capa.sym} 1000 -520 0 0 {name=C1
 m=1
-value=1p
+value=5p
 footprint=1206
 device="ceramic capacitor"}
 C {noconn.sym} 590 -490 2 1 {name=l1}
@@ -335,21 +336,21 @@ C {lab_pin.sym} 1000 -620 0 1 {name=p2 sig_type=std_logic lab=Vout}
 C {lab_pin.sym} 640 -470 2 1 {name=p6 sig_type=std_logic lab=VbiasP2}
 C {lab_pin.sym} 640 -450 2 1 {name=p7 sig_type=std_logic lab=VbiasN2}
 C {lab_pin.sym} 640 -430 2 1 {name=p11 sig_type=std_logic lab=VbiasN1}
-C {devices/vsource.sym} 550 -100 0 0 {name=V1 value=\{VbiasP2\}}
-C {devices/gnd.sym} 550 -60 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} 550 -160 0 0 {name=p3 sig_type=std_logic lab=VbiasP2}
-C {devices/vsource.sym} 630 -100 0 0 {name=V2 value=\{VbiasN2\}}
-C {devices/gnd.sym} 630 -60 0 0 {name=l3 lab=GND}
-C {devices/lab_wire.sym} 630 -160 0 0 {name=p4 sig_type=std_logic lab=VbiasN2}
-C {devices/vsource.sym} 710 -100 0 0 {name=V3 value=\{VbiasN1\}}
-C {devices/gnd.sym} 710 -60 0 0 {name=l5 lab=GND}
-C {devices/lab_wire.sym} 710 -160 0 0 {name=p12 sig_type=std_logic lab=VbiasN1}
-C {devices/vsource.sym} 390 -100 0 0 {name=V4 value=\{VDD\}}
-C {devices/gnd.sym} 390 -60 0 0 {name=l6 lab=GND}
-C {devices/lab_wire.sym} 390 -160 0 0 {name=p13 sig_type=std_logic lab=VDD}
-C {devices/vsource.sym} 470 -100 0 0 {name=V6 value=\{VSS\}}
-C {devices/gnd.sym} 470 -60 0 0 {name=l7 lab=GND}
-C {devices/lab_wire.sym} 470 -160 0 0 {name=p14 sig_type=std_logic lab=VSS}
+C {devices/vsource.sym} 540 -100 0 0 {name=V1 value=\{VbiasP2\}}
+C {devices/gnd.sym} 540 -60 0 0 {name=l2 lab=GND}
+C {devices/lab_wire.sym} 540 -160 0 0 {name=p3 sig_type=std_logic lab=VbiasP2}
+C {devices/vsource.sym} 650 -100 0 0 {name=V2 value=\{VbiasN2\}}
+C {devices/gnd.sym} 650 -60 0 0 {name=l3 lab=GND}
+C {devices/lab_wire.sym} 650 -160 0 0 {name=p4 sig_type=std_logic lab=VbiasN2}
+C {devices/vsource.sym} 760 -100 0 0 {name=V3 value=\{VbiasN1\}}
+C {devices/gnd.sym} 760 -60 0 0 {name=l5 lab=GND}
+C {devices/lab_wire.sym} 760 -160 0 0 {name=p12 sig_type=std_logic lab=VbiasN1}
+C {devices/vsource.sym} 330 -100 0 0 {name=V4 value=\{VDD\}}
+C {devices/gnd.sym} 330 -60 0 0 {name=l6 lab=GND}
+C {devices/lab_wire.sym} 330 -160 0 0 {name=p13 sig_type=std_logic lab=VDD}
+C {devices/vsource.sym} 430 -100 0 0 {name=V6 value=\{VSS\}}
+C {devices/gnd.sym} 430 -60 0 0 {name=l7 lab=GND}
+C {devices/lab_wire.sym} 430 -160 0 0 {name=p14 sig_type=std_logic lab=VSS}
 C {devices/vsource.sym} 330 -270 0 0 {name=V7 value=\{Vin_CM\}}
 C {devices/gnd.sym} 330 -230 0 0 {name=l8 lab=GND}
 C {devices/lab_wire.sym} 330 -330 0 0 {name=p10 sig_type=std_logic lab=Vin}
@@ -364,14 +365,14 @@ C {devices/lab_wire.sym} 690 -330 0 0 {name=p18 sig_type=std_logic lab=Vy}
 C {devices/lab_wire.sym} 830 -330 0 0 {name=p19 sig_type=std_logic lab=Vz}
 C {devices/code_shown.sym} 1100 -790 0 0 {name=Voltage_sources only_toplevel=true
 value="
-.param VDD = 1.62
+.param VDD = 3.3
 .param VSS = 0
-.param VbiasN1 = 0.6
-.param VbiasN2 = 1.21
-.param VbiasP2 = 0.57
+.param VbiasN1 = 0.71
+.param VbiasN2 = 1.44
+.param VbiasP2 = 1.37
 .param Vin_CM = 1.2
-.param Vout_CM = 0.9
+.param Vout_CM = \{VDD/2\}
 .param Vy = (Vout_CM - Vin_CM)
-.param load_cap = 1*1e-12 
+.param load_cap = 5*1e-12 
 "}
-C {gf180/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym} 690 -620 0 0 {name=x1}
+C {libs/error_amplifier_N_input_core_v4/xschem/error_amplifier_N_input_core_v4.sym} 690 -620 0 0 {name=x1}

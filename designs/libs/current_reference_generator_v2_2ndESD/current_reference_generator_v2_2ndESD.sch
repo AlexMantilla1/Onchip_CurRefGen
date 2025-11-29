@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 1220 -940 1310 -940 {lab=Vrefp}
 N 1220 -340 1320 -340 {lab=Vrefn}
@@ -56,16 +57,16 @@ C {lab_wire.sym} 590 -440 0 0 {name=p6 sig_type=std_logic lab=Vcomp_2nd}
 C {lab_wire.sym} 560 -720 0 0 {name=p7 sig_type=std_logic lab=Vref_2nd}
 C {lab_wire.sym} 960 -860 0 0 {name=p8 sig_type=std_logic lab=Vrefp_2nd}
 C {lab_wire.sym} 960 -470 0 0 {name=p9 sig_type=std_logic lab=Vrefn_2nd}
-C {gf180/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 740 -640 0 0 {name=x1}
-C {gf180/Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 1020 -860 0 0 {name=IO1
+C {libs/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 740 -640 0 0 {name=x1}
+C {Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 1020 -860 0 0 {name=IO5
 spiceprefix=X
 }
-C {gf180/Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 1020 -260 0 0 {name=IO2
+C {Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 1020 -260 0 0 {name=IO1
 spiceprefix=X
 }
-C {gf180/Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 460 -360 0 1 {name=IO3
+C {Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 460 -360 0 1 {name=IO2
 spiceprefix=X
 }
-C {gf180/Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 460 -640 0 1 {name=IO4
+C {Chipathon2025_pads/xschem/symbols/io_secondary_5p0.sym} 460 -640 0 1 {name=IO3
 spiceprefix=X
 }

@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {Reference 2uA} 630 -60 0 0 0.4 0.4 {}
 T {Reference 50uA} 1030 -60 0 0 0.4 0.4 {}
@@ -42,7 +43,7 @@ lab=Vrefp}
 N 710 -710 710 -590 {
 lab=VDD}
 N 710 -350 710 -280 {
-lab=Iref2n}
+lab=Iref1n}
 N 710 -460 710 -390 {
 lab=Iref1p}
 N 1010 -250 1070 -250 {
@@ -160,8 +161,6 @@ N 430 -650 610 -650 {lab=Vrefp}
 N 350 -710 1110 -710 {lab=VDD}
 N 150 -710 350 -710 {lab=VDD}
 N 150 -80 530 -80 {lab=VSS}
-N 450 -310 530 -310 {lab=Vrefn}
-N 530 -310 610 -310 {lab=Vrefn}
 N 260 -650 430 -650 {lab=Vrefp}
 N 1350 -610 1350 -590 {lab=VDD}
 N 1350 -590 1350 -580 {lab=VDD}
@@ -176,6 +175,9 @@ N 1610 -320 1610 -280 {lab=VSS}
 N 1610 -250 1660 -250 {lab=VSS}
 N 1530 -250 1570 -250 {lab=VDD}
 N 1610 -220 1610 -180 {lab=VSS}
+N 450 -310 530 -310 {lab=Vrefn}
+N 530 -310 600 -310 {lab=Vrefn}
+N 600 -310 610 -310 {lab=Vrefn}
 C {iopin.sym} 150 -710 2 0 {name=p23 lab=VDD}
 C {iopin.sym} 150 -80 2 0 {name=p24 lab=VSS}
 C {iopin.sym} 260 -650 2 0 {name=p25 lab=Vrefp}

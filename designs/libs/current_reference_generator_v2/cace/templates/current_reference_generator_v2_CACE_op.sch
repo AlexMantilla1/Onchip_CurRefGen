@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 120 -140 120 -100 {
 lab=GND}
@@ -103,5 +104,5 @@ C {lab_pin.sym} 620 -300 2 1 {name=p4 sig_type=std_logic lab=V_rext}
 C {lab_pin.sym} 450 -530 2 1 {name=p1 sig_type=std_logic lab=Vref}
 C {lab_pin.sym} 620 -610 2 1 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 650 -290 2 0 {name=p15 sig_type=std_logic lab=VSS}
-C {xschem/current_reference_generator_v2.sym} 650 -450 0 0 {name=x1}
-C {/foss/designs/Onchip_CurRefGen/designs/libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1080 -280 0 0 {name=x2}
+C {libs/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 650 -450 0 0 {name=x1}
+C {libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1080 -280 0 0 {name=x2}

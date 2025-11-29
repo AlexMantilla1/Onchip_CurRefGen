@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 P 4 1 1170 -440 {}
 N 1450 -270 1490 -270 {lab=VDD}
@@ -131,7 +132,7 @@ save all
 op
 
 ** run ac simulation
-ac dec 20 1 100e6
+ac dec 20 0.1 100e6
 
 ** All OP parameters
 setplot op1
@@ -493,7 +494,7 @@ let vout_mag = db(abs(v(Vout)))
 let vout_phase = cph(v(Vout)) * 180/pi
 let gm = (-1)*db(abs(v(Vout)))
 
-meas ac A0 find vout_mag at=1e2
+meas ac A0 find vout_mag at=0.1
 meas ac UGB when vout_mag=0 fall=1
 meas ac PM find vout_phase when vout_mag=0
 meas ac GM find gm when vout_phase=0
@@ -505,6 +506,6 @@ plot vout_mag vout_phase
 
 .endc
 "}
-C {gf180/error_amplifier_N_input_v3/xschem/error_amplifier_N_input_v3.sym} 930 -470 0 0 {name=x1}
-C {gf180/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1200 -400 0 0 {name=x2}
-C {gf180/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1630 -250 0 0 {name=x3}
+C {libs/error_amplifier_N_input_v4/xschem/error_amplifier_N_input_v4.sym} 930 -470 0 0 {name=x1}
+C {libs/current_reference_second_stage_v2/xschem/current_reference_second_stage_v2.sym} 1200 -400 0 0 {name=x2}
+C {libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1630 -250 0 0 {name=x3}

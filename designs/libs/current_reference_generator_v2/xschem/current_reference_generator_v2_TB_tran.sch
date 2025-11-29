@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 560 -360 600 -360 {lab=Vin}
 N 140 -140 140 -130 {lab=GND}
@@ -22,18 +23,18 @@ N 720 -160 720 -120 {lab=Vout}
 N 750 -160 750 -120 {lab=VSS}
 N 920 -210 960 -210 {lab=#net1}
 N 920 -350 960 -350 {lab=#net2}
-N 920 -230 1090 -230 {lab=#net3}
-N 1090 -230 1090 -150 {lab=#net3}
-N 920 -250 1130 -250 {lab=#net4}
-N 1130 -250 1130 -150 {lab=#net4}
-N 920 -270 1170 -270 {lab=#net5}
-N 1170 -270 1170 -150 {lab=#net5}
-N 920 -290 1210 -290 {lab=#net6}
-N 1210 -290 1210 -150 {lab=#net6}
-N 920 -310 1250 -310 {lab=#net7}
-N 1250 -310 1250 -150 {lab=#net7}
-N 920 -330 1290 -330 {lab=#net8}
-N 1290 -330 1290 -150 {lab=#net8}
+N 920 -230 1090 -230 {lab=Irefn_50uA}
+N 1090 -230 1090 -150 {lab=Irefn_50uA}
+N 920 -250 1130 -250 {lab=Irefn_20uA}
+N 1130 -250 1130 -150 {lab=Irefn_20uA}
+N 920 -270 1170 -270 {lab=Irefn_2uA}
+N 1170 -270 1170 -150 {lab=Irefn_2uA}
+N 920 -290 1210 -290 {lab=Irefp_2uA}
+N 1210 -290 1210 -150 {lab=Irefp_2uA}
+N 920 -310 1250 -310 {lab=Irefp_20uA}
+N 1250 -310 1250 -150 {lab=Irefp_20uA}
+N 920 -330 1290 -330 {lab=Irefp_50uA}
+N 1290 -330 1290 -150 {lab=Irefp_50uA}
 C {simulator_commands.sym} 970 -560 0 0 {name=COMMANDS3
 simulator="ngspice"
 only_toplevel="false" 
@@ -99,6 +100,12 @@ C {lab_pin.sym} 1010 -120 2 1 {name=p12 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 1010 -80 2 1 {name=p13 sig_type=std_logic lab=VSS}
 C {noconn.sym} 960 -210 2 0 {name=l1}
 C {noconn.sym} 960 -350 2 0 {name=l2}
-C {gf180/current_reference_load/xschem/current_reference_load.sym} 1190 -100 0 0 {name=x2}
-C {gf180/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 750 -280 0 0 {name=x1}
+C {libs/current_reference_generator_v2/xschem/current_reference_generator_v2.sym} 750 -280 0 0 {name=x1}
 C {lab_pin.sym} 720 -140 2 1 {name=p3 sig_type=std_logic lab=Vout}
+C {libs/current_reference_load_v2/xschem/current_reference_load_v2.sym} 1190 -100 0 0 {name=x2}
+C {devices/lab_wire.sym} 1290 -330 0 0 {name=p4 sig_type=std_logic lab=Irefp_50uA}
+C {devices/lab_wire.sym} 1250 -310 0 0 {name=p10 sig_type=std_logic lab=Irefp_20uA}
+C {devices/lab_wire.sym} 1210 -290 0 0 {name=p5 sig_type=std_logic lab=Irefp_2uA}
+C {devices/lab_wire.sym} 1170 -270 0 0 {name=p6 sig_type=std_logic lab=Irefn_2uA}
+C {devices/lab_wire.sym} 1090 -230 0 0 {name=p14 sig_type=std_logic lab=Irefn_50uA}
+C {devices/lab_wire.sym} 1130 -250 0 0 {name=p15 sig_type=std_logic lab=Irefn_20uA}

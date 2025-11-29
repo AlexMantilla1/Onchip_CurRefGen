@@ -5,3 +5,27 @@ if {![info exists PDK]} {
 
 # Add current directory to xschem library path
 append XSCHEM_LIBRARY_PATH :[file dirname [info script]] 
+
+#### BLOQUE DE SOLUCIÓN PARA CACE / RUTAS (VERSIÓN SEGURA) ####
+
+# 1. Obtener rutas absolutas (Igual que antes)
+set ACUAL_SCRIPT_PATH [file normalize [file dirname [info script]]]
+set PROJECT_ROOT [file normalize ${ACUAL_SCRIPT_PATH}/../../..]
+
+# 2. Inicialización Segura de la variable de entorno
+# Si XSCHEM_LIBRARY_PATH no existe en el entorno, la creamos vacía.
+if {![info exists env(XSCHEM_LIBRARY_PATH)]} {
+    set env(XSCHEM_LIBRARY_PATH) ""
+}
+
+# 3. Agregar la raíz del proyecto
+# Usamos separadores ':' explícitos para Linux
+set env(XSCHEM_LIBRARY_PATH) "$env(XSCHEM_LIBRARY_PATH):${PROJECT_ROOT}"
+
+# 4. (Opcional) Si tus símbolos están en 'libs', agrega esa también para asegurar:
+set env(XSCHEM_LIBRARY_PATH) "$env(XSCHEM_LIBRARY_PATH):${PROJECT_ROOT}/libs"
+
+# 5. Limpieza cosmética (quitar '::' si se crearon al inicio)
+set env(XSCHEM_LIBRARY_PATH) [string map {:: :} $env(XSCHEM_LIBRARY_PATH)]
+
+puts "DEBUG: XSCHEM_LIBRARY_PATH corregido: $env(XSCHEM_LIBRARY_PATH)"

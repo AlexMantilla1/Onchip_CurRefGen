@@ -1,8 +1,9 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {Loads} 310 -70 0 0 0.4 0.4 {}
 N 150 -230 150 -200 {lab=Iref2p}
@@ -56,7 +57,7 @@ C {ipin.sym} 780 -500 0 0 {name=p8 lab=Iref50n}
 C {ipin.sym} 780 -470 0 0 {name=p9 lab=Iref2p}
 C {ipin.sym} 780 -410 0 0 {name=p10 lab=Iref50p}
 C {symbols/pfet_03v3.sym} 130 -450 0 0 {name=M1
-L=2u
+L=4u
 W=2u
 nf=1
 m=2
@@ -70,8 +71,8 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 130 -170 0 0 {name=M4
-L=2u
-W=4u
+L=4u
+W=2u
 nf=1
 m=2
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -84,7 +85,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 540 -450 0 0 {name=M3
-L=2u
+L=4u
 W=2u
 nf=1
 m=50
@@ -98,8 +99,8 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 540 -170 0 0 {name=M6
-L=2u
-W=4u
+L=4u
+W=2u
 nf=1
 m=50
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -118,7 +119,7 @@ C {lab_pin.sym} 360 -350 2 1 {name=p5 sig_type=std_logic lab=Iref20n}
 C {lab_pin.sym} 360 -90 2 1 {name=p6 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 360 -270 2 1 {name=p7 sig_type=std_logic lab=Iref20p}
 C {symbols/pfet_03v3.sym} 340 -450 0 0 {name=M2
-L=2u
+L=4u
 W=2u
 nf=1
 m=20
@@ -132,8 +133,8 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 340 -170 0 0 {name=M5
-L=2u
-W=4u
+L=4u
+W=2u
 nf=1
 m=20
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
