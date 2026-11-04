@@ -1,0 +1,18 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\Users\josef\Documents\Electronic\Onchip\chipa_pcb\power\power_v1.net
+Start Time: Fri Oct 30 09:48:26 2026
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 322.516 seconds.
+
+Files loaded:
+C:\Users\josef\Documents\Electronic\Onchip\chipa_pcb\power\power_v1.net
+C:\Users\josef\AppData\Local\LTspice\lib\sub\ADM7171-3.3.sub
+
