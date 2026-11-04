@@ -1,0 +1,48 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\escor\OneDrive\Escritorio\Alex onchip\Chipa_schem_mcp6001.asc
+Start Time: Thu Oct 15 15:48:11 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = modified trap
+gmin = 1e-12
+abstol = 1e-12
+reltol = 0.003
+Instance "m:u9:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u9:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u3:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u3:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u4:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u4:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u5:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u5:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u6:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u6:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u7:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u7:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u8:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u8:14": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Increasing initial diagonal Gmin to 100
+Increasing initial diagonal Gmin to 1000
+Increasing initial diagonal Gmin to 10000
+Increasing initial diagonal Gmin to 100000
+Increasing initial diagonal Gmin to 1e+06
+Initial Gmin=1e+06 failed
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 1%
+vernier = 0.25
+Source Step = 0.0273438%
+Starting source stepping with srcstepmethod=1
+Source Step = 1%
+vernier = 0.25
+Source stepping failed
+
+Pseudo Transient failed in finding the operating point at 5 µs.
+Fatal Error: Analysis Failed: Iteration limit reached

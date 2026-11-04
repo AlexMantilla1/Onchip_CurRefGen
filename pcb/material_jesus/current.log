@@ -1,0 +1,5 @@
+Stray ".ends" card: .ends
+LTspice 24.0.12 for Windows
+Circuit: .subckt current VREF VCOMP VREFN VREFP VDD 20N 20P 50N 50P 2N 2P VSS
+Start Time: Tue Sep  8 23:17:33 2026
+Fatal Error: No analysis request found.

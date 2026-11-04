@@ -1,0 +1,9 @@
+* C:\Users\escor\OneDrive\Escritorio\Alex onchip\Draft2.asc
+V1 vdd 0 3.3
+V2 N001 0 1.65
+XU1 N001 N002 vdd 0 N002 MCP6001
+R1 N002 0 1k
+.op
+.lib C:\Users\escor\OneDrive\Escritorio\Alex onchip\MCP6001.txt
+.backanno
+.end

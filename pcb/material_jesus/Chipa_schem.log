@@ -1,0 +1,58 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\escor\OneDrive\Escritorio\Alex onchip\Chipa_schem.asc
+Start Time: Sun Oct  4 22:06:42 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = modified trap
+WARNING: Node N009 is floating.
+WARNING: Node N012 is floating.
+WARNING: Node N017 is floating.
+WARNING: Node N021 is floating.
+WARNING: Node N024 is floating.
+
+WARNING: Less than two connections to node n006.  This node is used by v:u1:2.
+WARNING: Less than two connections to node n009.  This node is used by r1.
+WARNING: Less than two connections to node n012.  This node is used by r0.
+WARNING: Less than two connections to node n017.  This node is used by r3.
+WARNING: Less than two connections to node n021.  This node is used by r4.
+WARNING: Less than two connections to node n024.  This node is used by r2.
+WARNING: Less than two connections to node n030.  This node is used by r6.
+Instance "m:u10:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u10:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u3:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u3:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u4:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u4:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u5:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u5:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u6:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u6:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u7:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u7:14": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u8:12": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u8:14": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Increasing initial diagonal Gmin to 100
+Increasing initial diagonal Gmin to 1000
+Increasing initial diagonal Gmin to 10000
+Increasing initial diagonal Gmin to 100000
+Increasing initial diagonal Gmin to 1e+06
+Initial Gmin=1e+06 failed
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+vernier = 0.25
+Source Step = 0.0177557%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+vernier = 0.25
+Source stepping failed
+
+Pseudo Transient failed in finding the operating point at 5 µs.
+Fatal Error: Analysis Failed: Iteration limit reached

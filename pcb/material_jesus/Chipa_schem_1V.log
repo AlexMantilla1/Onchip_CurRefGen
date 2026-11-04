@@ -1,0 +1,46 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\escor\OneDrive\Escritorio\Alex onchip\Chipa_schem_1V.asc
+Start Time: Thu Oct 15 16:12:16 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Semiconductor Device Operating Points:
+                        --- Diodes ---
+Name:          d1
+Model: l1c1-red1000000000
+Id:          5.05e-03
+Vd:          1.56e+00
+Req:         8.82e+00
+CAP:         9.01e-10
+
+                        --- VDMOSFET Transistors ---
+Name:          m1          m3          m4          m5          m6
+Model:       2n7002      2n7002      2n7002      2n7002      2n7002
+Id:          5.00e-05    1.68e-03    5.00e-05    1.68e-03    1.68e-03
+Vgs:         2.53e+00    1.71e+00    1.47e+00    1.71e+00    1.71e+00
+Vds:         2.91e-04    4.80e-01    1.47e+00    4.80e-01    4.80e-01
+Vth:         1.60e+00    1.60e+00    1.60e+00    1.60e+00    1.60e+00
+Gm:          5.38e-05    1.81e-02    8.88e-04    1.81e-02    1.81e-02
+Gds:         1.97e-01    0.00e+00    0.00e+00    0.00e+00    0.00e+00
+Cgs:         5.00e-11    5.00e-11    5.00e-11    5.00e-11    5.00e-11
+Cgd:         7.97e-11    7.59e-11    5.35e-11    7.59e-11    7.59e-11
+Cbody:       5.00e-11    4.11e-11    3.18e-11    4.11e-11    4.11e-11
+
+Name:          m2
+Model:       ao6407
+Id:          7.45e-11
+Vgs:         2.53e+00
+Vds:        -2.47e+00
+Vth:        -8.00e-01
+Gm:          3.96e-29
+Gds:         0.00e+00
+Cgs:         9.00e-10
+Cgd:         1.03e-10
+Cbody:       1.40e-10
+
+
+Total elapsed time: 0.116 seconds.
+
