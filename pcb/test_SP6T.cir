@@ -1,0 +1,22 @@
+* test_SP6T.cir -- prueba rapida del selector
+.include SP6T.lib
+* 6 fuentes de corriente que simulan las salidas, cada una con su carga
+I1 0 T1 2u
+I2 0 T2 2u
+I3 0 T3 20u
+I4 0 T4 20u
+I5 0 T5 50u
+I6 0 T6 50u
+RL1 T1 0 500k
+RL2 T2 0 500k
+RL3 T3 0 50k
+RL4 T4 0 50k
+RL5 T5 0 20k
+RL6 T6 0 20k
+* COM sostenido a 1.2 V (como i_probe en el amplificador)
+VCOM COM 0 1.2
+X1 COM T1 T2 T3 T4 T5 T6 SP6T pos={sel}
+.step param sel 1 6 1
+.op
+.meas op I_COM FIND I(VCOM)
+.end

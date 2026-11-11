@@ -1,0 +1,37 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -80 -112 80 112
+LINE Normal -80 0 -32 0
+CIRCLE Normal -36 -4 -28 4
+LINE Normal -28 0 40 -72
+TEXT 0 -128 Center 2 SP6T
+WINDOW 0 0 128 Center 2
+WINDOW 3 0 152 Center 2
+WINDOW 39 0 176 Center 1
+SYMATTR Value SP6T
+SYMATTR Prefix X
+SYMATTR SpiceModel SP6T
+SYMATTR ModelFile SP6T.lib
+SYMATTR SpiceLine pos=1 Ron=20m Roff=1000Meg Cp=0.5p
+SYMATTR Description Selector 1 polo 6 posiciones (jumper 2x6 o rotativo SP6T)
+PIN -80 0 LEFT 8
+PINATTR PinName COM
+PINATTR SpiceOrder 1
+PIN 80 -80 RIGHT 8
+PINATTR PinName T1
+PINATTR SpiceOrder 2
+PIN 80 -48 RIGHT 8
+PINATTR PinName T2
+PINATTR SpiceOrder 3
+PIN 80 -16 RIGHT 8
+PINATTR PinName T3
+PINATTR SpiceOrder 4
+PIN 80 16 RIGHT 8
+PINATTR PinName T4
+PINATTR SpiceOrder 5
+PIN 80 48 RIGHT 8
+PINATTR PinName T5
+PINATTR SpiceOrder 6
+PIN 80 80 RIGHT 8
+PINATTR PinName T6
+PINATTR SpiceOrder 7

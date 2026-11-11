@@ -1,0 +1,34 @@
+* =====================================================================
+* SP6T.lib  --  Selector de 6 posiciones (1 polo, 6 vias) para LTspice
+* Sirve para el selector por jumper (header 2x6 + 1 jumper) o para un
+* rotativo SP6T. Cambia los parametros segun la hoja de datos de la parte.
+*
+* Pines:   COM  T1  T2  T3  T4  T5  T6
+* Params:  pos  = posicion seleccionada (1..6). 0 = ninguna (sin jumper)
+*          Ron  = resistencia de contacto en la posicion seleccionada
+*          Roff = resistencia de aislamiento en las demas (valor MINIMO)
+*          Cp   = capacitancia parasita COM-Tn (estimada)
+*
+* Valores por defecto: tipicos de header 2.54 mm + jumper. VERIFICAR con
+* la hoja de datos de la parte elegida:
+*   header + jumper:  Ron ~ 20m,  Roff >= 1000Meg
+*   rotativo SP6T:    Ron ~ 100m, Roff >= 100Meg  (ej. C&K serie RM)
+*
+* Uso:  X10 i_probe IOUTN_2UA IOUTP_2UA IOUTN_20UA IOUTP_20UA
+*       + IOUTN_50UA IOUTP_50UA SP6T pos=3
+* Barrido de posiciones:  pos={sel}  y  .step param sel 1 6 1
+* =====================================================================
+.subckt SP6T COM T1 T2 T3 T4 T5 T6 params: pos=1 Ron=20m Roff=1000Meg Cp=0.5p
+R1 COM T1 {if(pos==1,Ron,Roff)}
+R2 COM T2 {if(pos==2,Ron,Roff)}
+R3 COM T3 {if(pos==3,Ron,Roff)}
+R4 COM T4 {if(pos==4,Ron,Roff)}
+R5 COM T5 {if(pos==5,Ron,Roff)}
+R6 COM T6 {if(pos==6,Ron,Roff)}
+C1 COM T1 {Cp}
+C2 COM T2 {Cp}
+C3 COM T3 {Cp}
+C4 COM T4 {Cp}
+C5 COM T5 {Cp}
+C6 COM T6 {Cp}
+.ends SP6T
