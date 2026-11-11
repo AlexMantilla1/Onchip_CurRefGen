@@ -32,7 +32,7 @@
 * NO se varian: R9/I1, C3, C4, V3, V4, L1, L2, R10, R11.
 * .tran 0 5m 0  y ningun otro .step.  Resultados: View > SPICE Error Log
 *
-* MODO A (activo): uno a la vez, 41 corridas
+* MODO A (activo): uno a la vez, 41 corners x 6 posiciones del selector = 246 corridas
 *   0           nominal (con kDC aplicado)
 *   1..38       un componente al extremo bajo (impar) o alto (par):
 *                 1,2 = R1
@@ -90,7 +90,36 @@
 * =====================================================================
 * MODO A: UNO A LA VEZ
 * =====================================================================
-.step param corner 0 40 1
+* --- Barrido principal: corner x posicion del selector SP6T (U4) -------
+* n = 0..245: para cada corner (0..40) el selector pasa por sus
+* 6 posiciones. Conexion de U4 en TB_Tran_V5.asc:
+*   sw_pos 1 = IOUTN_2UA    2 = IOUTP_2UA    3 = IOUTN_20UA
+*   sw_pos 4 = IOUTP_20UA   5 = IOUTN_50UA   6 = IOUTP_50UA
+* (ver abajo la SpiceLine completa de U4)
+* Elige UNA de estas tres opciones (deja activa solo una linea):
+*   246 corridas: corners x 6 posiciones (selector estatico, sw_tsw = 0)
+*    41 corridas: solo corners (selector por tiempo, o sw_fijo = 1..6)
+*     1 corrida : solo el nominal (para ver los cambios del selector).
+*                 LTspice no acepta un .step de una sola corrida, por eso
+*                 esta opcion fija n con .param en lugar de .step.
+*.step param n 0 245 1
+*.step param n 0 40 1
+.param n = 0
+.param sw_fijo = 0      ; 0 = el selector barre 1..6;  1..6 = posicion fija
+* --- Selector por tiempo (cambia DENTRO del transitorio) ----------------
+* sw_tsw = 0   -> selector estatico (una posicion por corrida, arriba)
+* sw_tsw > 0   -> el selector cambia cada sw_tsw dentro del transitorio:
+*                 pos 1 hasta sw_tstart, luego 2, 3, 4, 5, 6 cada sw_tsw.
+*                 Con 10m/10m: pos 1 de 0 a 10 ms, ..., pos 6 de 50 a
+*                 60 ms. Usa .tran 0 60m 0 1u (o mas) para ver las 6.
+*                 En este modo usa  .step param n 0 40 1  (o  0 0 1 para
+*                 solo el nominal): el barrido de posiciones ya no aplica.
+* En U4 (SP6T) poner en SpiceLine:
+*   pos={sw_pos} tsw={sw_tsw} tstart={sw_tstart} Ron=20m Roff=1000Meg Cp=0.5p
+.param sw_tsw    = 10m
+.param sw_tstart = 10m
+.param corner = {if((sw_fijo==0)*(sw_tsw==0), floor(n/6), n)}
+.param sw_pos = {if(sw_fijo==0, 1 + n - 6*floor(n/6), sw_fijo)}
 .param idx = {floor((corner+1)/2)}
 .param sgn = {if(corner-2*floor(corner/2) == 1, -1, 1)}
 .param kR1 = {if(corner==0,1, if(corner==39,1-tol_R1, if(corner==40,1+tol_R1, if(idx==1,1+tol_R1*sgn,1))))}
@@ -116,6 +145,7 @@
 * =====================================================================
 * MODO B: MONTE CARLO (comenta todo el MODO A y descomenta esto)
 * =====================================================================
+* (en Monte Carlo define tambien:  .param sw_pos = 3  y comenta corner/sw_pos de arriba)
 *.step param run 1 100 1
 *.param kR1 = {mc(1, tol_R1)}
 *.param kR2 = {mc(1, tol_R2)}
@@ -185,6 +215,9 @@
 
 * --- Mediciones: LDO --------------------------------------------------------
 .meas tran Vin_ss   AVG V(vin)    FROM 4m TO 5m
+.meas tran Vin_max  MAX V(vin)    FROM 0 TO 5m
+* ADR3412 alimentado de vin: VIN max 5.5 V (datasheet)
+.meas tran margen_ADR3412 PARAM 5.5-Vin_max
 .meas tran Vout_ss  AVG V(VDD3V3) FROM 4m TO 5m
 .meas tran Vout_pp  PP  V(VDD3V3) FROM 4m TO 5m
 .meas tran Vout_min MIN V(VDD3V3) FROM 4m TO 5m
@@ -207,5 +240,27 @@
 .meas tran Vamp_pp   PP  V(vout)    FROM 4m TO 5m
 .meas tran Vprobe_ss AVG V(i_probe) FROM 4m TO 5m
 .meas tran I_probe   PARAM (Vprobe_ss-Vamp_ss)/R12_val
+* --- Selector SP6T: posicion, corner y corriente esperada ---------------
+.meas tran sel        PARAM sw_pos
+.meas tran n_corner   PARAM corner
+.meas tran I_esperada PARAM if(sw_pos<=2,2u, if(sw_pos<=4,20u, 50u))
+.meas tran err_probe_pct PARAM (abs(I_probe)-I_esperada)/I_esperada*100
+
+* --- Mediciones: selector por tiempo (sw_tsw=10m, sw_tstart=10m) ------
+* Promedio de la corriente medida por el amplificador en la segunda mitad
+* de cada posicion (ya estabilizada). Si cambias sw_tsw o sw_tstart,
+* ajusta estas ventanas.
+.meas tran Ip_pos1 AVG (V(i_probe)-V(vout))/R12_val FROM 5m TO 10m
+.meas tran Ip_pos2 AVG (V(i_probe)-V(vout))/R12_val FROM 15m TO 20m
+.meas tran Ip_pos3 AVG (V(i_probe)-V(vout))/R12_val FROM 25m TO 30m
+.meas tran Ip_pos4 AVG (V(i_probe)-V(vout))/R12_val FROM 35m TO 40m
+.meas tran Ip_pos5 AVG (V(i_probe)-V(vout))/R12_val FROM 45m TO 50m
+.meas tran Ip_pos6 AVG (V(i_probe)-V(vout))/R12_val FROM 55m TO 60m
+.meas tran err_pos1_pct PARAM (abs(Ip_pos1)-2u)/2u*100
+.meas tran err_pos2_pct PARAM (abs(Ip_pos2)-2u)/2u*100
+.meas tran err_pos3_pct PARAM (abs(Ip_pos3)-20u)/20u*100
+.meas tran err_pos4_pct PARAM (abs(Ip_pos4)-20u)/20u*100
+.meas tran err_pos5_pct PARAM (abs(Ip_pos5)-50u)/50u*100
+.meas tran err_pos6_pct PARAM (abs(Ip_pos6)-50u)/50u*100
 
 .options plotwinsize=0

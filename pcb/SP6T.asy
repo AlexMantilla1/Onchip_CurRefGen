@@ -10,7 +10,6 @@ WINDOW 3 0 152 Center 2
 WINDOW 39 0 176 Center 1
 SYMATTR Value SP6T
 SYMATTR Prefix X
-SYMATTR SpiceModel SP6T
 SYMATTR ModelFile SP6T.lib
 SYMATTR SpiceLine pos=1 Ron=20m Roff=1000Meg Cp=0.5p
 SYMATTR Description Selector 1 polo 6 posiciones (jumper 2x6 o rotativo SP6T)
