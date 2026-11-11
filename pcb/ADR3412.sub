@@ -1,0 +1,29 @@
+* ADR3412 - Modelo de COMPORTAMIENTO (no es el modelo oficial de ADI)
+* Referencia serie 1.200 V, familia ADR34xx, SOT-23-6
+* Hecho para Chipa PCB (Onchip UIS) a partir de especificaciones de datasheet:
+*   Vout 1.200 V (+-0.1%), VIN 2.3 V a 5.5 V, Iq ~85 uA, +-10 mA de salida,
+*   habilitacion por EN, salida forzada/sensada (OUTF/OUTS).
+* Lo que modela: valor de salida, regulacion de linea y carga aproximadas,
+*   dropout, habilitacion, arranque suave y consumo.
+* Lo que NO modela: ruido, deriva termica, PSRR en frecuencia ni la
+*   estabilidad real con el capacitor de salida. Para eso, usar el
+*   datasheet o el modelo oficial si ADI lo publica.
+*
+* Orden de pines = numero de pin del SOT-23-6:
+*   1 GNDF  2 GNDS  3 EN  4 IN  5 OUTS  6 OUTF
+.subckt ADR3412 GNDF GNDS EN IN OUTS OUTF
+.param VREF=1.2 LINEREG=20u ROUT=0.05 VDO=1.1 TSS=50u
+* consumo propio
+I_Q IN GNDF 85u
+R_EN EN GNDF 10Meg
+R_GS GNDS GNDF 1
+* valor objetivo: habilitado si EN > 1.0 V, con regulacion de linea y dropout
+B_TGT tgt GNDF V=if(V(EN,GNDF)>1.0, min(VREF*(1+LINEREG*(V(IN,GNDF)-5)), max(V(IN,GNDF)-VDO,0)), 0)
+* arranque suave (tau = TSS/4)
+R_SS tgt ss 1k
+C_SS ss GNDF {TSS/4/1k}
+* lazo de sensado: corrige la caida en ROUT usando OUTS
+B_DRV drv GNDF V=V(ss,GNDF)+V(ss,GNDF)-V(OUTS,GNDF)*0.5-V(OUTF,GNDF)*0.5
+R_OUT drv OUTF {ROUT}
+R_SNS OUTS OUTF 10
+.ends ADR3412
