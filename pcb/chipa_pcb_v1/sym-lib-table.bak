@@ -1,0 +1,8 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "current_reference") (type "KiCad") (uri "C:/Users/josef/Documents/Electronic/Onchip/chipa_pcb/pcb/kicad/current_reference/current_reference.kicad_sym") (options "") (descr ""))
+	(lib (name "ADA4505-2ARMZ-RL") (type "KiCad") (uri "C:/Users/josef/Documents/Electronic/Onchip/chipa_pcb/pcb/kicad/LIB_ADA4505-2ARMZ-RL/ADA4505-2ARMZ-RL/KiCad/ADA4505-2ARMZ-RL.kicad_sym") (options "") (descr ""))
+	(lib (name "CK1049") (type "KiCad") (uri "C:/Users/josef/Documents/Electronic/Onchip/chipa_pcb/pcb/kicad/LIB_CK1049/CK1049/KiCad/CK1049.kicad_sym") (options "") (descr ""))
+	(lib (name "UJC-HP-L-G-5-MSMT-TR") (type "KiCad") (uri "C:/Users/josef/Documents/Electronic/Onchip/chipa_pcb/pcb/kicad/LIB_UJC-HP-L-G-5-MSMT-TR/UJC-HP-L-G-5-MSMT-TR/KiCad/UJC-HP-L-G-5-MSMT-TR.kicad_sym") (options "") (descr ""))
+	(lib (name "SMD1210B020TF") (type "KiCad") (uri "C:/Users/josef/Documents/Electronic/Onchip/chipa_pcb/pcb/kicad/LIB_SMD1210B020TF/SMD1210B020TF/KiCad/SMD1210B020TF.kicad_sym") (options "") (descr ""))
+)
